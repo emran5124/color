@@ -1,0 +1,7 @@
+{
+  "name": "Color & Typography Studio",
+  "description": "استودیو هوشمند ترکیب رنگ و تایپوگرافی بر پایه محاسبات ریاضی OKLCH و هارمونی زوایای چرخ رنگ",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
