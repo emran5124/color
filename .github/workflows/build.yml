@@ -91,7 +91,9 @@ jobs:
         KEYSTORE_PATH: ${{ github.workspace }}/app/my-upload-key.jks
         APP_VERSION_CODE: ${{ steps.version_bump.outputs.version_code }}
         APP_VERSION_NAME: ${{ steps.version_bump.outputs.version_name }}
-      run: ./gradlew assembleRelease
+      run: |
+        sed -i '/kotlin.compiler.execution.strategy/d' gradle.properties || true
+        ./gradlew assembleRelease -Dkotlin.compiler.execution.strategy=daemon
 
     - name: Rename APK for release
       run: |
