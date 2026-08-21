@@ -11,11 +11,11 @@ android {
   compileSdk { version = release(36) { minorApiLevel = 1 } }
 
   defaultConfig {
-    applicationId = "com.aistudio.colortypographystudio"
+    applicationId = "com.aistudio.subtitlestudio"
     minSdk = 24
     targetSdk = 36
-    versionCode = 33
-    versionName = "1.0.32"
+    versionCode = 31
+    versionName = "1.0.30"
 
     // Dynamic version override to ensure every single local or GitHub build increments automatically
     val dynamicVersionCode = System.getenv("APP_VERSION_CODE")?.toIntOrNull() 

@@ -75,7 +75,7 @@ jobs:
         git push origin main || echo "Branch protection or restricted GITHUB_TOKEN permission blocked pushing version changes to branch, continuing with dynamic compilation version instead!"
 
     - name: Re-generate pristine Gradle Wrapper
-      run: gradle wrapper --gradle-version 8.12 || gradle wrapper
+      run: gradle wrapper
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
