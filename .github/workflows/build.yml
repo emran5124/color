@@ -75,7 +75,7 @@ jobs:
         git push origin main || echo "Branch protection or restricted GITHUB_TOKEN permission blocked pushing version changes to branch, continuing with dynamic compilation version instead!"
 
     - name: Re-generate pristine Gradle Wrapper
-      run: gradle wrapper
+      run: gradle wrapper --gradle-version 8.12 || gradle wrapper
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
@@ -95,7 +95,7 @@ jobs:
 
     - name: Rename APK for release
       run: |
-        mv app/build/outputs/apk/release/app-release.apk app/build/outputs/apk/release/ColorStudio-v${{ steps.version_bump.outputs.version_name }}.apk
+        mv app/build/outputs/apk/release/app-release.apk app/build/outputs/apk/release/SubtitleStudio-v${{ steps.version_bump.outputs.version_name }}.apk
 
     - name: Create GitHub Release and Upload APK
       uses: softprops/action-gh-release@v2
@@ -103,11 +103,11 @@ jobs:
         tag_name: v${{ steps.version_bump.outputs.version_name }}
         name: Release v${{ steps.version_bump.outputs.version_name }}
         body: |
-          Automatic release of Color & Typography Studio application.
+          Automatic release of SubtitleStudio application.
           Version Name: ${{ steps.version_bump.outputs.version_name }}
           Version Code: ${{ steps.version_bump.outputs.version_code }}
         files: |
-          app/build/outputs/apk/release/ColorStudio-v${{ steps.version_bump.outputs.version_name }}.apk
+          app/build/outputs/apk/release/SubtitleStudio-v${{ steps.version_bump.outputs.version_name }}.apk
         draft: false
         prerelease: false
       env:
